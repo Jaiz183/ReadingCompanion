@@ -7,13 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A5314DE92A4973A100438791 /* SwiftCSV in Frameworks */ = {isa = PBXBuildFile; productRef = A5314DE82A4973A100438791 /* SwiftCSV */; };
+		A53877942A78AD4A00DD150C /* BookInfoRetriever.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53877932A78AD4A00DD150C /* BookInfoRetriever.swift */; };
+		A53877962A78B81300DD150C /* LookupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53877952A78B81300DD150C /* LookupView.swift */; };
+		A552DB412A273F0300BDB0EB /* AnnotatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A552DB402A273F0300BDB0EB /* AnnotatorView.swift */; };
+		A552DB462A275DC500BDB0EB /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = A552DB452A275DC500BDB0EB /* Camera.swift */; };
 		A57C330A2A25ACBC00BB38A6 /* ReadingCompanionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57C33092A25ACBC00BB38A6 /* ReadingCompanionApp.swift */; };
-		A57C330C2A25ACBC00BB38A6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57C330B2A25ACBC00BB38A6 /* ContentView.swift */; };
+		A57C330C2A25ACBC00BB38A6 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57C330B2A25ACBC00BB38A6 /* HomeView.swift */; };
 		A57C330E2A25ACBF00BB38A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A57C330D2A25ACBF00BB38A6 /* Assets.xcassets */; };
 		A57C33112A25ACBF00BB38A6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A57C33102A25ACBF00BB38A6 /* Preview Assets.xcassets */; };
 		A57C331B2A25ACC000BB38A6 /* ReadingCompanionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57C331A2A25ACC000BB38A6 /* ReadingCompanionTests.swift */; };
 		A57C33252A25ACC000BB38A6 /* ReadingCompanionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57C33242A25ACC000BB38A6 /* ReadingCompanionUITests.swift */; };
 		A57C33272A25ACC000BB38A6 /* ReadingCompanionUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57C33262A25ACC000BB38A6 /* ReadingCompanionUITestsLaunchTests.swift */; };
+		A5845A292A6F91CA00B0EE04 /* ImageSwipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5845A282A6F91CA00B0EE04 /* ImageSwipeView.swift */; };
+		A5B8D0F42A419049005205AA /* PythonKit in Frameworks */ = {isa = PBXBuildFile; productRef = A5B8D0F32A419049005205AA /* PythonKit */; };
+		A5CBDA002A342B0800439EE0 /* TextRecognitionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CBD9FF2A342B0800439EE0 /* TextRecognitionModel.swift */; };
+		A5CBDA022A342DBE00439EE0 /* ImageManipulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CBDA012A342DBE00439EE0 /* ImageManipulator.swift */; };
+		A5F2BEDF2A6ED4FE00970314 /* DocumentCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F2BEDE2A6ED4FE00970314 /* DocumentCamera.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,9 +44,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A53877932A78AD4A00DD150C /* BookInfoRetriever.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookInfoRetriever.swift; sourceTree = "<group>"; };
+		A53877952A78B81300DD150C /* LookupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookupView.swift; sourceTree = "<group>"; };
+		A552DB402A273F0300BDB0EB /* AnnotatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotatorView.swift; sourceTree = "<group>"; };
+		A552DB422A274A3C00BDB0EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		A552DB452A275DC500BDB0EB /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 		A57C33062A25ACBC00BB38A6 /* ReadingCompanion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReadingCompanion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A57C33092A25ACBC00BB38A6 /* ReadingCompanionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingCompanionApp.swift; sourceTree = "<group>"; };
-		A57C330B2A25ACBC00BB38A6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		A57C330B2A25ACBC00BB38A6 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		A57C330D2A25ACBF00BB38A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A57C33102A25ACBF00BB38A6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A57C33162A25ACC000BB38A6 /* ReadingCompanionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReadingCompanionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +59,10 @@
 		A57C33202A25ACC000BB38A6 /* ReadingCompanionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReadingCompanionUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A57C33242A25ACC000BB38A6 /* ReadingCompanionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingCompanionUITests.swift; sourceTree = "<group>"; };
 		A57C33262A25ACC000BB38A6 /* ReadingCompanionUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingCompanionUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		A5845A282A6F91CA00B0EE04 /* ImageSwipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSwipeView.swift; sourceTree = "<group>"; };
+		A5CBD9FF2A342B0800439EE0 /* TextRecognitionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextRecognitionModel.swift; sourceTree = "<group>"; };
+		A5CBDA012A342DBE00439EE0 /* ImageManipulator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManipulator.swift; sourceTree = "<group>"; };
+		A5F2BEDE2A6ED4FE00970314 /* DocumentCamera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentCamera.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +70,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5B8D0F42A419049005205AA /* PythonKit in Frameworks */,
+				A5314DE92A4973A100438791 /* SwiftCSV in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,10 +115,19 @@
 		A57C33082A25ACBC00BB38A6 /* ReadingCompanion */ = {
 			isa = PBXGroup;
 			children = (
+				A552DB422A274A3C00BDB0EB /* Info.plist */,
 				A57C33092A25ACBC00BB38A6 /* ReadingCompanionApp.swift */,
-				A57C330B2A25ACBC00BB38A6 /* ContentView.swift */,
+				A57C330B2A25ACBC00BB38A6 /* HomeView.swift */,
 				A57C330D2A25ACBF00BB38A6 /* Assets.xcassets */,
 				A57C330F2A25ACBF00BB38A6 /* Preview Content */,
+				A552DB402A273F0300BDB0EB /* AnnotatorView.swift */,
+				A552DB452A275DC500BDB0EB /* Camera.swift */,
+				A5CBD9FF2A342B0800439EE0 /* TextRecognitionModel.swift */,
+				A5CBDA012A342DBE00439EE0 /* ImageManipulator.swift */,
+				A5F2BEDE2A6ED4FE00970314 /* DocumentCamera.swift */,
+				A5845A282A6F91CA00B0EE04 /* ImageSwipeView.swift */,
+				A53877932A78AD4A00DD150C /* BookInfoRetriever.swift */,
+				A53877952A78B81300DD150C /* LookupView.swift */,
 			);
 			path = ReadingCompanion;
 			sourceTree = "<group>";
@@ -143,6 +173,10 @@
 			dependencies = (
 			);
 			name = ReadingCompanion;
+			packageProductDependencies = (
+				A5B8D0F32A419049005205AA /* PythonKit */,
+				A5314DE82A4973A100438791 /* SwiftCSV */,
+			);
 			productName = ReadingCompanion;
 			productReference = A57C33062A25ACBC00BB38A6 /* ReadingCompanion.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +249,10 @@
 				Base,
 			);
 			mainGroup = A57C32FD2A25ACBC00BB38A6;
+			packageReferences = (
+				A5B8D0F22A419049005205AA /* XCRemoteSwiftPackageReference "PythonKit" */,
+				A5314DE72A4973A100438791 /* XCRemoteSwiftPackageReference "SwiftCSV" */,
+			);
 			productRefGroup = A57C33072A25ACBC00BB38A6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -257,8 +295,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A57C330C2A25ACBC00BB38A6 /* ContentView.swift in Sources */,
+				A57C330C2A25ACBC00BB38A6 /* HomeView.swift in Sources */,
+				A5CBDA002A342B0800439EE0 /* TextRecognitionModel.swift in Sources */,
+				A552DB462A275DC500BDB0EB /* Camera.swift in Sources */,
 				A57C330A2A25ACBC00BB38A6 /* ReadingCompanionApp.swift in Sources */,
+				A53877962A78B81300DD150C /* LookupView.swift in Sources */,
+				A53877942A78AD4A00DD150C /* BookInfoRetriever.swift in Sources */,
+				A5CBDA022A342DBE00439EE0 /* ImageManipulator.swift in Sources */,
+				A5845A292A6F91CA00B0EE04 /* ImageSwipeView.swift in Sources */,
+				A552DB412A273F0300BDB0EB /* AnnotatorView.swift in Sources */,
+				A5F2BEDF2A6ED4FE00970314 /* DocumentCamera.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -417,8 +463,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ReadingCompanion/Preview Content\"";
+				DEVELOPMENT_TEAM = BF2J2YQ22N;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ReadingCompanion/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Allow ReadingCompanion to use your Camera?";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -445,8 +494,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ReadingCompanion/Preview Content\"";
+				DEVELOPMENT_TEAM = BF2J2YQ22N;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ReadingCompanion/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Allow ReadingCompanion to use your Camera?";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -577,6 +629,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A5314DE72A4973A100438791 /* XCRemoteSwiftPackageReference "SwiftCSV" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/swiftcsv/SwiftCSV.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.8.1;
+			};
+		};
+		A5B8D0F22A419049005205AA /* XCRemoteSwiftPackageReference "PythonKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pvieito/PythonKit";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A5314DE82A4973A100438791 /* SwiftCSV */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A5314DE72A4973A100438791 /* XCRemoteSwiftPackageReference "SwiftCSV" */;
+			productName = SwiftCSV;
+		};
+		A5B8D0F32A419049005205AA /* PythonKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A5B8D0F22A419049005205AA /* XCRemoteSwiftPackageReference "PythonKit" */;
+			productName = PythonKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A57C32FE2A25ACBC00BB38A6 /* Project object */;
 }
