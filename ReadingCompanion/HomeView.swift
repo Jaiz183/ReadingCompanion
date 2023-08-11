@@ -26,6 +26,7 @@ struct HomeView: View {
                         Image(systemName: "note")
                     }
                 }
+                
                 NavigationLink {
                     LookupView()
                 } label: {
@@ -44,8 +45,6 @@ struct HomeView: View {
 //        } detail: {
 //            AnnotatorView()
 //        }
-
-
     }
 }
 

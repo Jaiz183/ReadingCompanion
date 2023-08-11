@@ -23,6 +23,7 @@
 		A5B8D0F42A419049005205AA /* PythonKit in Frameworks */ = {isa = PBXBuildFile; productRef = A5B8D0F32A419049005205AA /* PythonKit */; };
 		A5CBDA002A342B0800439EE0 /* TextRecognitionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CBD9FF2A342B0800439EE0 /* TextRecognitionModel.swift */; };
 		A5CBDA022A342DBE00439EE0 /* ImageManipulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CBDA012A342DBE00439EE0 /* ImageManipulator.swift */; };
+		A5E6ABB82A85E3F0006ABE02 /* BookInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E6ABB72A85E3F0006ABE02 /* BookInfo.swift */; };
 		A5F2BEDF2A6ED4FE00970314 /* DocumentCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F2BEDE2A6ED4FE00970314 /* DocumentCamera.swift */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +63,7 @@
 		A5845A282A6F91CA00B0EE04 /* ImageSwipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSwipeView.swift; sourceTree = "<group>"; };
 		A5CBD9FF2A342B0800439EE0 /* TextRecognitionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextRecognitionModel.swift; sourceTree = "<group>"; };
 		A5CBDA012A342DBE00439EE0 /* ImageManipulator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManipulator.swift; sourceTree = "<group>"; };
+		A5E6ABB72A85E3F0006ABE02 /* BookInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookInfo.swift; sourceTree = "<group>"; };
 		A5F2BEDE2A6ED4FE00970314 /* DocumentCamera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentCamera.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -128,6 +130,7 @@
 				A5845A282A6F91CA00B0EE04 /* ImageSwipeView.swift */,
 				A53877932A78AD4A00DD150C /* BookInfoRetriever.swift */,
 				A53877952A78B81300DD150C /* LookupView.swift */,
+				A5E6ABB72A85E3F0006ABE02 /* BookInfo.swift */,
 			);
 			path = ReadingCompanion;
 			sourceTree = "<group>";
@@ -302,6 +305,7 @@
 				A53877962A78B81300DD150C /* LookupView.swift in Sources */,
 				A53877942A78AD4A00DD150C /* BookInfoRetriever.swift in Sources */,
 				A5CBDA022A342DBE00439EE0 /* ImageManipulator.swift in Sources */,
+				A5E6ABB82A85E3F0006ABE02 /* BookInfo.swift in Sources */,
 				A5845A292A6F91CA00B0EE04 /* ImageSwipeView.swift in Sources */,
 				A552DB412A273F0300BDB0EB /* AnnotatorView.swift in Sources */,
 				A5F2BEDF2A6ED4FE00970314 /* DocumentCamera.swift in Sources */,

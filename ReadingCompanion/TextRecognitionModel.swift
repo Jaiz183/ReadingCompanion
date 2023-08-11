@@ -38,6 +38,7 @@ struct TextRecognitionModel {
                     for result in results {
                         // Returns array with 1 candidate at most and gets first element of that array
                         let candidate = result.topCandidates(1).first!
+                        // Add space to separate conjoined words. Will be removed by tokenizer in self.cleanRecognizedText.
                         recognizedText += candidate.string + " "
                         
                         // Get bounding boxes for all results.

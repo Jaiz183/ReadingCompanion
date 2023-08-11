@@ -10,7 +10,7 @@ import Vision
 import VisionKit
 
 struct AnnotatorView: View {
-    // States.
+    // Control fullscreen covers.
     @State private var isCameraDisplayed: Bool = false
     @State private var isAnnotatedImageDisplayed: Bool = false
     
@@ -20,6 +20,7 @@ struct AnnotatorView: View {
     // Determines whether a drawn image or raw image is displayed. A drawn image is displayed when isTextRecognitionComplete is true.
     @State private var isTextRecognitionComplete: Bool = false
     
+    // Image vars.
     @State private var rawImage: UIImage? = UIImage(named: "default_image")
     @State private var drawnImage: UIImage? = UIImage(named: "default_image")
     
@@ -31,7 +32,7 @@ struct AnnotatorView: View {
     @State private var recognizedText: String = "No text recognized yet."
     @State private var boundingBoxes: [CGRect] = []
     
-    // Other structs.
+    // Structs to perform computations.
     private let model: TextRecognitionModel = .init()
     private let imageManipulator: ImageManipulator = .init()
     
@@ -113,8 +114,9 @@ struct AnnotatorView: View {
             .controlSize(.large)
         }
         
-        // When an image is taken, self.image changes. onChange watches for changes in self.image.
+        // When an image is taken, self.image changes. onChange watches for changes in self.
         .onChange(of: self.rawImages, perform: {
+        // Task is used because model.performTextRecognition is an async method.
         (rawImages: [UIImage]) -> Void in Task {
                 do {
                     self.recognizedText = "Text recognition in progress..."
@@ -137,12 +139,5 @@ struct AnnotatorView: View {
                 }
                 }
         })
-    }
-}
-
-
-struct AnnotatorView_Previews: PreviewProvider {
-    static var previews: some View {
-        AnnotatorView()
     }
 }
