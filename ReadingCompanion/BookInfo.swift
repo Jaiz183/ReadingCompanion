@@ -18,7 +18,10 @@ struct BookInfo: View {
         VStack {
             Text(self.subtitle)
             Text(self.subtitle)
-            Text(String(describing: self.authors))
+            ForEach(0..<self.authors.count) { index in
+                Text(self.authors[index])
+            }
+
         }
     }
 }

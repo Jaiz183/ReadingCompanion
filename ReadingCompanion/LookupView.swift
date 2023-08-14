@@ -12,19 +12,22 @@ struct LookupView: View {
     @State private var isBookDataDisplayed: Bool = false
     @State private var books: [Book] = []
     @State private var information: String = "No information about request."
+    @State private var searchTerms: String = "isbn:0716604892"
+    
     
     
     var body: some View {
-        ScrollView {
             VStack {
-                Text(information)
-                Text(String(describing: self.books))
+                TextField("Book Name", text: self.$searchTerms)
+                    .disableAutocorrection(true)
+                    .frame(width: 240)
+                    .textFieldStyle(.roundedBorder)
                 
                 Button {
                     let bookInfoRetriever = BookInfoRetriever(information: self.$information)
                     bookInfoRetriever.fetchBookInfo(completionHandler: { books in
                         self.books = books
-                    }, searchTerms: ["isbn:0716604892"])
+                    }, searchTerms: [self.searchTerms])
                     self.isBookDataDisplayed = true
                 } label: {
                     Text("Search")
@@ -32,48 +35,12 @@ struct LookupView: View {
                 .buttonStyle(.borderedProminent)
                 .controlSize(.large)
                 
-                // Testing template code.
-//                Button {
-//                    Task {
-//                        let (data, response) = try await URLSession.shared.data(from: URL(string: "https://www.googleapis.com/books/v1/volumes?q=isbn:0716604892")!)
-//
-//
-//                        /*
-//                         Format of data:
-//                         - JSON object mapping from String to String / [Dictionary<String, Any>]
-//
-//                         Decodable struct:
-//                         - APIResult struct with items attribute mapped to [Book]
-//                         - Book struct with id, other attributes mapped to String
-//                         - Book attributes:
-//                            - etag
-//                            - selfLink
-//                            - volumeInfo (JSON object containing title, authors, etc.)
-//                            - accessInfo (JSON object with information about level of access, etc.)
-//                            - kind
-//                         */
-//
-//                        // Serialization approach (but it's annoyingly hard.
-//    //                    let decodedData = try? JSONSerialization.jsonObject(with: data, options: .fragmentsAllowed) as? [String: Any]
-//    //                    var intermediateDecodedData = (decodedData?["items"] as? [Dictionary<String, Any>])?[0] ?? [:]
-//    //                    var testDecodedData = intermediateDecodedData
-//    //                    var testDecodedDataType = type(of: testDecodedData)
-//
-//                        let decodedData: APIResult? = try? JSONDecoder().decode(APIResult.self, from: data)
-//
-//                        let httpResponse = response as? HTTPURLResponse
-//
-//                        self.information = "Response code - \(httpResponse?.statusCode ?? 0). Data type - \(type(of: decodedData))."
-//                        self.books = decodedData?.items ?? []
-//                        self.isBookDataDisplayed = true
-//                    }
-//                } label: {
-//                    Text("Search")
-//                }
-//                .buttonStyle(.borderedProminent)
-//                .controlSize(.large)
+                Divider()
+                
+                Text(information)
+                self.isBookDataDisplayed ? Text("Found \(self.books.count) results.") : Text("Search something!")
+                
             }
-        }
         .fullScreenCover(isPresented: self.$isBookDataDisplayed) {
             NavigationStack {
                 List(self.books) { book in
@@ -94,6 +61,21 @@ struct LookupView: View {
     }
 }
 
+/*
+ Format of data:
+    - JSON object mapping from String to String / [Dictionary<String, Any>]
+ 
+ Decodable struct:
+    - APIResult struct with items attribute mapped to [Book]
+    - Book struct with id, other attributes mapped to String
+    - Book attributes:
+    - etag
+    - selfLink
+    - volumeInfo (JSON object containing title, authors, etc.)
+    - accessInfo (JSON object with information about level of access, etc.)
+    - kind
+*/
+
 struct APIResult: Codable {
     var items: [Book]
 }
@@ -103,7 +85,6 @@ struct Book: Codable, Identifiable {
     let selfLink: String
     let id: String
     let volumeInfo: VolumeInfo
-//    let accessInfo: String
     let kind: String
 }
 

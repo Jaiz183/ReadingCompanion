@@ -38,7 +38,7 @@ struct AnnotatorView: View {
     
     
     var body: some View {
-        VStack(spacing: 15){
+        VStack(spacing: 15) {
             
             // Camera opening button.
             Button(action: {
@@ -66,7 +66,6 @@ struct AnnotatorView: View {
         // Text viewing button.
         Button(action: {() -> Void in self.isRecognizedTextDisplayed = true}){
             Image(systemName: "doc.text")
-
         }
         .buttonStyle(.borderedProminent)
         .controlSize(.large)
@@ -92,6 +91,20 @@ struct AnnotatorView: View {
 //                    .resizable()
 //                    .scaledToFit()
                 ImageSwipeView(images: self.isTextRecognitionComplete ? self.drawnImages : self.rawImages)
+                Image(uiImage: self.drawnImages[0])
+                    .resizable()
+                    .scaledToFit()
+                    .overlay {GeometryReader { geometry in
+                        ZStack {
+                            ForEach(0..<self.boundingBoxes.count) { index in
+                                Rectangle()
+                                    .stroke(lineWidth: 2)
+                                    .foregroundColor(.red)
+                                    .frame(width: self.boundingBoxes[index].width, height: self.boundingBoxes[index].height)
+                                    .offset(x: self.boundingBoxes[index].origin.x, y: self.boundingBoxes[index].origin.y)
+                            }
+                        }
+                    }}
                 
                 Button(action: {() -> Void in self.isAnnotatedImageDisplayed = false}) {
                     Text("Close")

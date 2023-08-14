@@ -13,7 +13,7 @@ import NaturalLanguage
 
 // Struct that manages asynchronous requests to Vision.
 struct TextRecognitionModel {
-    private let targetText: String = "MANY"
+    private let targetText: String = "Movies"
     
     /**
      Function that performs text recognition given an image.
