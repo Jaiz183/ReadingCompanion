@@ -7,12 +7,15 @@
 
 import Foundation
 import SwiftUI
+import OSLog
 
 struct BookInfoRetriever {
     @Binding var information: String
+    var defaultLogger: Logger = Logger(subsystem: Bundle.main.bundleIdentifier!, category: "network")
     
     func fetchBookInfo(completionHandler: @escaping ([Book]) -> Void, searchTerms: [String]) -> Void {
         
+        defaultLogger.debug("Initializing URL...")
         self.information = "Initializing URL..."
         
         // Initialize URL.

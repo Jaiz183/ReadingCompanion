@@ -13,7 +13,7 @@ import NaturalLanguage
 
 // Struct that manages asynchronous requests to Vision.
 struct TextRecognitionModel {
-    private let targetText: String = "Movies"
+    private let targetText: String = "SELECTED"
     
     /**
      Function that performs text recognition given an image.
@@ -24,7 +24,6 @@ struct TextRecognitionModel {
     func performTextRecognition(image: UIImage?) async throws -> (recognizedText: String, boundingBoxes: [CGRect]) {
         guard let cgImage: CGImage = image?.cgImage else {throw RequestErrors.unableToRetrieveImage}
         let requestHandler: VNImageRequestHandler = VNImageRequestHandler(cgImage: cgImage)
-        
         return try await withCheckedThrowingContinuation({ continuation in
             let recognizeTextRequest = VNRecognizeTextRequest(completionHandler: { request, error in
                 if let error {
@@ -42,22 +41,23 @@ struct TextRecognitionModel {
                         recognizedText += candidate.string + " "
                         
                         // Get bounding boxes for all results.
-//                        if let range = candidate.string.range(of: candidate.string) {
-//                            let boxObservation = try? candidate.boundingBox(for: range)
-//                            let boundingBox = boxObservation?.boundingBox ?? .zero
-//                            let boundingRect = VNImageRectForNormalizedRect(boundingBox, Int(image!.size.width), Int(image!.size.height))
-//                            boundingRects.append(boundingRect)
-//                        }
-                        
-                        // Get bounding box for a specific word.
-                        if let range = candidate.string.range(of: self.targetText) {
+                        if let range = candidate.string.range(of: candidate.string) {
                             let boxObservation = try? candidate.boundingBox(for: range)
-                            // Ensure bounding box for word is not null.
                             let boundingBox = boxObservation?.boundingBox ?? .zero
-                            // Translate normalized coordinates to coordinates on scan / image.
                             let boundingRect = VNImageRectForNormalizedRect(boundingBox, Int(image!.size.width), Int(image!.size.height))
                             boundingRects.append(boundingRect)
                         }
+                        
+                        // Get bounding box for a specific word.
+//                        if let range = candidate.string.range(of: self.targetText) {
+//                            let boxObservation = try? candidate.boundingBox(for: range)
+//                            // Ensure bounding box for word is not null.
+//                            let boundingBox = boxObservation?.boundingBox ?? .zero
+//                            // Translate normalized coordinates to coordinates on scan / image.
+//                            let boundingRect = VNImageRectForNormalizedRect(boundingBox, Int(image!.size.width), Int(image!.size.height))
+////                            let boundingRect = correctedBoundingBox(forRegionOfInterest: boundingBox, withinImageBounds: image!.imageRendererFormat.bounds)
+//                            boundingRects.append(boundingRect)
+//                        }
                     }
                     
                     let recognizedWords = self.cleanRecognizedText(recognizedText: recognizedText)
@@ -127,6 +127,27 @@ struct TextRecognitionModel {
         }
         
         return tokensSoFar
+    }
+    
+    // Apple's sample function.
+    fileprivate func correctedBoundingBox(forRegionOfInterest: CGRect, withinImageBounds bounds: CGRect) -> CGRect {
+        
+        let imageWidth = bounds.width
+        let imageHeight = bounds.height
+        
+        // Begin with input rect.
+        var rect = forRegionOfInterest
+        
+        // Reposition origin.
+        rect.origin.x *= imageWidth
+        rect.origin.x += bounds.origin.x
+        rect.origin.y = (1 - rect.origin.y) * imageHeight + bounds.origin.y
+        
+        // Rescale normalized coordinates.
+        rect.size.width *= imageWidth
+        rect.size.height *= imageHeight
+        
+        return rect
     }
     
     func getData() -> [String] {

@@ -91,20 +91,22 @@ struct AnnotatorView: View {
 //                    .resizable()
 //                    .scaledToFit()
                 ImageSwipeView(images: self.isTextRecognitionComplete ? self.drawnImages : self.rawImages)
-                Image(uiImage: self.drawnImages[0])
-                    .resizable()
-                    .scaledToFit()
-                    .overlay {GeometryReader { geometry in
-                        ZStack {
-                            ForEach(0..<self.boundingBoxes.count) { index in
-                                Rectangle()
-                                    .stroke(lineWidth: 2)
-                                    .foregroundColor(.red)
-                                    .frame(width: self.boundingBoxes[index].width, height: self.boundingBoxes[index].height)
-                                    .offset(x: self.boundingBoxes[index].origin.x, y: self.boundingBoxes[index].origin.y)
-                            }
-                        }
-                    }}
+                
+                // Tried a solution for offset bounding boxes that I saw on StackOverflow. Doesn't display any bounding boxes.
+//                Image(uiImage: self.rawImages[0])
+//                    .resizable()
+//                    .scaledToFit()
+//                    .overlay {GeometryReader { geometry in
+//                        ZStack {
+//                            ForEach(0..<self.boundingBoxes.count) { index in
+//                                Rectangle()
+//                                    .stroke(lineWidth: 2)
+//                                    .foregroundColor(.red)
+//                                    .frame(width: self.boundingBoxes[index].width, height: self.boundingBoxes[index].height)
+//                                    .offset(x: self.boundingBoxes[index].origin.x, y: self.boundingBoxes[index].origin.y)
+//                            }
+//                        }
+//                    }}
                 
                 Button(action: {() -> Void in self.isAnnotatedImageDisplayed = false}) {
                     Text("Close")
