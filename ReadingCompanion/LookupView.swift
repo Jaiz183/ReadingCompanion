@@ -15,7 +15,6 @@ struct LookupView: View {
     @State private var searchTerms: String = "isbn:0716604892"
     
     
-    
     var body: some View {
             VStack {
                 TextField("Book Name", text: self.$searchTerms)

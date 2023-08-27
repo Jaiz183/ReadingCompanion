@@ -35,6 +35,7 @@ struct AnnotatorView: View {
     // Structs to perform computations.
     private let model: TextRecognitionModel = .init()
     private let imageManipulator: ImageManipulator = .init()
+    private let wordDifficultyComputer: WordDifficultyComputer = .init(threshold: 1000)
     
     
     var body: some View {
@@ -64,7 +65,9 @@ struct AnnotatorView: View {
         .controlSize(.large)
         
         // Text viewing button.
-        Button(action: {() -> Void in self.isRecognizedTextDisplayed = true}){
+        Button(action: {() -> Void in
+            self.isRecognizedTextDisplayed = true
+        }){
             Image(systemName: "doc.text")
         }
         .buttonStyle(.borderedProminent)
@@ -144,7 +147,10 @@ struct AnnotatorView: View {
                     
                     self.drawnImages = []
                     for rawImage in rawImages {
-                        (self.recognizedText, self.boundingBoxes) = try await model.performTextRecognition(image: rawImage)
+                        let result = try await model.performTextRecognition(image: rawImage)
+                        try self.wordDifficultyComputer.parseCsvFile()
+                        self.recognizedText = String(describing: wordDifficultyComputer.findDifficultWords(recognizedWords: result.recognizedWords))
+                        self.boundingBoxes = result.boundingBoxes
                         self.drawnImages.append(imageManipulator.drawBoundingBoxes(undrawnImage: rawImage, boundingBoxes: self.boundingBoxes)!)
                     }
                     self.isTextRecognitionComplete = true

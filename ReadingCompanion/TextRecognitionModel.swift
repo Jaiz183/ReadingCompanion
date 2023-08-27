@@ -11,17 +11,17 @@ import VisionKit
 import NaturalLanguage
 
 
-// Struct that manages asynchronous requests to Vision.
+// Manages asynchronous requests to Vision.
 struct TextRecognitionModel {
     private let targetText: String = "SELECTED"
     
     /**
-     Function that performs text recognition given an image.
+     Performs text recognition given an image.
      
      - Parameter cgImage: image with text to be recognized.
      - Returns a tuple of 2 - a String storing recognized text split into words and an array of CGRect bounding boxes.
      */
-    func performTextRecognition(image: UIImage?) async throws -> (recognizedText: String, boundingBoxes: [CGRect]) {
+    func performTextRecognition(image: UIImage?) async throws -> (recognizedWords: [String], boundingBoxes: [CGRect]) {
         guard let cgImage: CGImage = image?.cgImage else {throw RequestErrors.unableToRetrieveImage}
         let requestHandler: VNImageRequestHandler = VNImageRequestHandler(cgImage: cgImage)
         return try await withCheckedThrowingContinuation({ continuation in
@@ -61,7 +61,7 @@ struct TextRecognitionModel {
                     }
                     
                     let recognizedWords = self.cleanRecognizedText(recognizedText: recognizedText)
-                    let finalRecognizedText = recognizedWords.joined(separator: ", ") + "\n\(results.count) results."
+//                    let finalRecognizedText = recognizedWords.joined(separator: ", ") + "\n\(results.count) results."
                     
 //                    let recognizedText: [String] = results.compactMap({result in result.topCandidates(1).first!.string})
 //                    let boundingRects: [CGRect] = results.compactMap({result in
@@ -81,7 +81,7 @@ struct TextRecognitionModel {
 //                                                                Int(image!.size.height))
 //                        })
                     
-                    continuation.resume(returning: (finalRecognizedText, boundingRects))
+                    continuation.resume(returning: (recognizedWords, boundingRects))
                 }
             })
             

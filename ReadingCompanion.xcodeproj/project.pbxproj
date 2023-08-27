@@ -10,6 +10,9 @@
 		A5314DE92A4973A100438791 /* SwiftCSV in Frameworks */ = {isa = PBXBuildFile; productRef = A5314DE82A4973A100438791 /* SwiftCSV */; };
 		A53877942A78AD4A00DD150C /* BookInfoRetriever.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53877932A78AD4A00DD150C /* BookInfoRetriever.swift */; };
 		A53877962A78B81300DD150C /* LookupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53877952A78B81300DD150C /* LookupView.swift */; };
+		A53CA2752A9B246300739748 /* WordDifficultyComputer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53CA2742A9B246300739748 /* WordDifficultyComputer.swift */; };
+		A53CA2782A9B253600739748 /* OrderedCollections in Frameworks */ = {isa = PBXBuildFile; productRef = A53CA2772A9B253600739748 /* OrderedCollections */; };
+		A53CA27A2A9B3D2000739748 /* word_frequencies.csv in Resources */ = {isa = PBXBuildFile; fileRef = A53CA2792A9B3D2000739748 /* word_frequencies.csv */; };
 		A552DB412A273F0300BDB0EB /* AnnotatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A552DB402A273F0300BDB0EB /* AnnotatorView.swift */; };
 		A552DB462A275DC500BDB0EB /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = A552DB452A275DC500BDB0EB /* Camera.swift */; };
 		A57C330A2A25ACBC00BB38A6 /* ReadingCompanionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57C33092A25ACBC00BB38A6 /* ReadingCompanionApp.swift */; };
@@ -47,6 +50,8 @@
 /* Begin PBXFileReference section */
 		A53877932A78AD4A00DD150C /* BookInfoRetriever.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookInfoRetriever.swift; sourceTree = "<group>"; };
 		A53877952A78B81300DD150C /* LookupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookupView.swift; sourceTree = "<group>"; };
+		A53CA2742A9B246300739748 /* WordDifficultyComputer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordDifficultyComputer.swift; sourceTree = "<group>"; };
+		A53CA2792A9B3D2000739748 /* word_frequencies.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = word_frequencies.csv; path = ../../../../../../Downloads/word_frequencies.csv; sourceTree = "<group>"; };
 		A552DB402A273F0300BDB0EB /* AnnotatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotatorView.swift; sourceTree = "<group>"; };
 		A552DB422A274A3C00BDB0EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		A552DB452A275DC500BDB0EB /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
@@ -74,6 +79,7 @@
 			files = (
 				A5B8D0F42A419049005205AA /* PythonKit in Frameworks */,
 				A5314DE92A4973A100438791 /* SwiftCSV in Frameworks */,
+				A53CA2782A9B253600739748 /* OrderedCollections in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,6 +127,7 @@
 				A57C33092A25ACBC00BB38A6 /* ReadingCompanionApp.swift */,
 				A57C330B2A25ACBC00BB38A6 /* HomeView.swift */,
 				A57C330D2A25ACBF00BB38A6 /* Assets.xcassets */,
+				A53CA2742A9B246300739748 /* WordDifficultyComputer.swift */,
 				A57C330F2A25ACBF00BB38A6 /* Preview Content */,
 				A552DB402A273F0300BDB0EB /* AnnotatorView.swift */,
 				A552DB452A275DC500BDB0EB /* Camera.swift */,
@@ -131,6 +138,7 @@
 				A53877932A78AD4A00DD150C /* BookInfoRetriever.swift */,
 				A53877952A78B81300DD150C /* LookupView.swift */,
 				A5E6ABB72A85E3F0006ABE02 /* BookInfo.swift */,
+				A53CA2792A9B3D2000739748 /* word_frequencies.csv */,
 			);
 			path = ReadingCompanion;
 			sourceTree = "<group>";
@@ -179,6 +187,7 @@
 			packageProductDependencies = (
 				A5B8D0F32A419049005205AA /* PythonKit */,
 				A5314DE82A4973A100438791 /* SwiftCSV */,
+				A53CA2772A9B253600739748 /* OrderedCollections */,
 			);
 			productName = ReadingCompanion;
 			productReference = A57C33062A25ACBC00BB38A6 /* ReadingCompanion.app */;
@@ -255,6 +264,7 @@
 			packageReferences = (
 				A5B8D0F22A419049005205AA /* XCRemoteSwiftPackageReference "PythonKit" */,
 				A5314DE72A4973A100438791 /* XCRemoteSwiftPackageReference "SwiftCSV" */,
+				A53CA2762A9B253600739748 /* XCRemoteSwiftPackageReference "swift-collections" */,
 			);
 			productRefGroup = A57C33072A25ACBC00BB38A6 /* Products */;
 			projectDirPath = "";
@@ -273,6 +283,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A57C33112A25ACBF00BB38A6 /* Preview Assets.xcassets in Resources */,
+				A53CA27A2A9B3D2000739748 /* word_frequencies.csv in Resources */,
 				A57C330E2A25ACBF00BB38A6 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -299,6 +310,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A57C330C2A25ACBC00BB38A6 /* HomeView.swift in Sources */,
+				A53CA2752A9B246300739748 /* WordDifficultyComputer.swift in Sources */,
 				A5CBDA002A342B0800439EE0 /* TextRecognitionModel.swift in Sources */,
 				A552DB462A275DC500BDB0EB /* Camera.swift in Sources */,
 				A57C330A2A25ACBC00BB38A6 /* ReadingCompanionApp.swift in Sources */,
@@ -643,6 +655,14 @@
 				minimumVersion = 0.8.1;
 			};
 		};
+		A53CA2762A9B253600739748 /* XCRemoteSwiftPackageReference "swift-collections" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-collections.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		A5B8D0F22A419049005205AA /* XCRemoteSwiftPackageReference "PythonKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/pvieito/PythonKit";
@@ -658,6 +678,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A5314DE72A4973A100438791 /* XCRemoteSwiftPackageReference "SwiftCSV" */;
 			productName = SwiftCSV;
+		};
+		A53CA2772A9B253600739748 /* OrderedCollections */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A53CA2762A9B253600739748 /* XCRemoteSwiftPackageReference "swift-collections" */;
+			productName = OrderedCollections;
 		};
 		A5B8D0F32A419049005205AA /* PythonKit */ = {
 			isa = XCSwiftPackageProductDependency;
