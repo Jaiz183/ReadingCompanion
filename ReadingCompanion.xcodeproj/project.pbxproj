@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A52179132A9C4EA0004B78BE /* TextRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52179122A9C4EA0004B78BE /* TextRecognizer.swift */; };
+		A52179192A9C4F75004B78BE /* BookInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52179182A9C4F75004B78BE /* BookInfoView.swift */; };
+		A521791B2A9C6DB9004B78BE /* DefinitionRetriever.swift in Sources */ = {isa = PBXBuildFile; fileRef = A521791A2A9C6DB9004B78BE /* DefinitionRetriever.swift */; };
 		A5314DE92A4973A100438791 /* SwiftCSV in Frameworks */ = {isa = PBXBuildFile; productRef = A5314DE82A4973A100438791 /* SwiftCSV */; };
 		A53877942A78AD4A00DD150C /* BookInfoRetriever.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53877932A78AD4A00DD150C /* BookInfoRetriever.swift */; };
 		A53877962A78B81300DD150C /* LookupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53877952A78B81300DD150C /* LookupView.swift */; };
@@ -24,9 +27,7 @@
 		A57C33272A25ACC000BB38A6 /* ReadingCompanionUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57C33262A25ACC000BB38A6 /* ReadingCompanionUITestsLaunchTests.swift */; };
 		A5845A292A6F91CA00B0EE04 /* ImageSwipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5845A282A6F91CA00B0EE04 /* ImageSwipeView.swift */; };
 		A5B8D0F42A419049005205AA /* PythonKit in Frameworks */ = {isa = PBXBuildFile; productRef = A5B8D0F32A419049005205AA /* PythonKit */; };
-		A5CBDA002A342B0800439EE0 /* TextRecognitionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CBD9FF2A342B0800439EE0 /* TextRecognitionModel.swift */; };
 		A5CBDA022A342DBE00439EE0 /* ImageManipulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CBDA012A342DBE00439EE0 /* ImageManipulator.swift */; };
-		A5E6ABB82A85E3F0006ABE02 /* BookInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E6ABB72A85E3F0006ABE02 /* BookInfo.swift */; };
 		A5F2BEDF2A6ED4FE00970314 /* DocumentCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F2BEDE2A6ED4FE00970314 /* DocumentCamera.swift */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +49,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A52179122A9C4EA0004B78BE /* TextRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextRecognizer.swift; sourceTree = "<group>"; };
+		A52179172A9C4F1F004B78BE /* word_frequencies.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = word_frequencies.csv; sourceTree = "<group>"; };
+		A52179182A9C4F75004B78BE /* BookInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookInfoView.swift; sourceTree = "<group>"; };
+		A521791A2A9C6DB9004B78BE /* DefinitionRetriever.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefinitionRetriever.swift; sourceTree = "<group>"; };
 		A53877932A78AD4A00DD150C /* BookInfoRetriever.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookInfoRetriever.swift; sourceTree = "<group>"; };
 		A53877952A78B81300DD150C /* LookupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookupView.swift; sourceTree = "<group>"; };
 		A53CA2742A9B246300739748 /* WordDifficultyComputer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordDifficultyComputer.swift; sourceTree = "<group>"; };
@@ -66,9 +71,7 @@
 		A57C33242A25ACC000BB38A6 /* ReadingCompanionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingCompanionUITests.swift; sourceTree = "<group>"; };
 		A57C33262A25ACC000BB38A6 /* ReadingCompanionUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingCompanionUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		A5845A282A6F91CA00B0EE04 /* ImageSwipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSwipeView.swift; sourceTree = "<group>"; };
-		A5CBD9FF2A342B0800439EE0 /* TextRecognitionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextRecognitionModel.swift; sourceTree = "<group>"; };
 		A5CBDA012A342DBE00439EE0 /* ImageManipulator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManipulator.swift; sourceTree = "<group>"; };
-		A5E6ABB72A85E3F0006ABE02 /* BookInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookInfo.swift; sourceTree = "<group>"; };
 		A5F2BEDE2A6ED4FE00970314 /* DocumentCamera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentCamera.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -100,6 +103,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A52179142A9C4F05004B78BE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A53CA2742A9B246300739748 /* WordDifficultyComputer.swift */,
+				A5CBDA012A342DBE00439EE0 /* ImageManipulator.swift */,
+				A53877932A78AD4A00DD150C /* BookInfoRetriever.swift */,
+				A521791A2A9C6DB9004B78BE /* DefinitionRetriever.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A52179152A9C4F0F004B78BE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A57C33092A25ACBC00BB38A6 /* ReadingCompanionApp.swift */,
+				A57C330B2A25ACBC00BB38A6 /* HomeView.swift */,
+				A552DB402A273F0300BDB0EB /* AnnotatorView.swift */,
+				A52179122A9C4EA0004B78BE /* TextRecognizer.swift */,
+				A552DB452A275DC500BDB0EB /* Camera.swift */,
+				A5F2BEDE2A6ED4FE00970314 /* DocumentCamera.swift */,
+				A5845A282A6F91CA00B0EE04 /* ImageSwipeView.swift */,
+				A53877952A78B81300DD150C /* LookupView.swift */,
+				A52179182A9C4F75004B78BE /* BookInfoView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A52179162A9C4F16004B78BE /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				A52179172A9C4F1F004B78BE /* word_frequencies.csv */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		A57C32FD2A25ACBC00BB38A6 = {
 			isa = PBXGroup;
 			children = (
@@ -123,21 +161,12 @@
 		A57C33082A25ACBC00BB38A6 /* ReadingCompanion */ = {
 			isa = PBXGroup;
 			children = (
+				A52179162A9C4F16004B78BE /* Data */,
+				A52179152A9C4F0F004B78BE /* Views */,
+				A52179142A9C4F05004B78BE /* Models */,
 				A552DB422A274A3C00BDB0EB /* Info.plist */,
-				A57C33092A25ACBC00BB38A6 /* ReadingCompanionApp.swift */,
-				A57C330B2A25ACBC00BB38A6 /* HomeView.swift */,
 				A57C330D2A25ACBF00BB38A6 /* Assets.xcassets */,
-				A53CA2742A9B246300739748 /* WordDifficultyComputer.swift */,
 				A57C330F2A25ACBF00BB38A6 /* Preview Content */,
-				A552DB402A273F0300BDB0EB /* AnnotatorView.swift */,
-				A552DB452A275DC500BDB0EB /* Camera.swift */,
-				A5CBD9FF2A342B0800439EE0 /* TextRecognitionModel.swift */,
-				A5CBDA012A342DBE00439EE0 /* ImageManipulator.swift */,
-				A5F2BEDE2A6ED4FE00970314 /* DocumentCamera.swift */,
-				A5845A282A6F91CA00B0EE04 /* ImageSwipeView.swift */,
-				A53877932A78AD4A00DD150C /* BookInfoRetriever.swift */,
-				A53877952A78B81300DD150C /* LookupView.swift */,
-				A5E6ABB72A85E3F0006ABE02 /* BookInfo.swift */,
 				A53CA2792A9B3D2000739748 /* word_frequencies.csv */,
 			);
 			path = ReadingCompanion;
@@ -311,14 +340,15 @@
 			files = (
 				A57C330C2A25ACBC00BB38A6 /* HomeView.swift in Sources */,
 				A53CA2752A9B246300739748 /* WordDifficultyComputer.swift in Sources */,
-				A5CBDA002A342B0800439EE0 /* TextRecognitionModel.swift in Sources */,
+				A52179132A9C4EA0004B78BE /* TextRecognizer.swift in Sources */,
+				A521791B2A9C6DB9004B78BE /* DefinitionRetriever.swift in Sources */,
 				A552DB462A275DC500BDB0EB /* Camera.swift in Sources */,
 				A57C330A2A25ACBC00BB38A6 /* ReadingCompanionApp.swift in Sources */,
 				A53877962A78B81300DD150C /* LookupView.swift in Sources */,
 				A53877942A78AD4A00DD150C /* BookInfoRetriever.swift in Sources */,
 				A5CBDA022A342DBE00439EE0 /* ImageManipulator.swift in Sources */,
-				A5E6ABB82A85E3F0006ABE02 /* BookInfo.swift in Sources */,
 				A5845A292A6F91CA00B0EE04 /* ImageSwipeView.swift in Sources */,
+				A52179192A9C4F75004B78BE /* BookInfoView.swift in Sources */,
 				A552DB412A273F0300BDB0EB /* AnnotatorView.swift in Sources */,
 				A5F2BEDF2A6ED4FE00970314 /* DocumentCamera.swift in Sources */,
 			);
