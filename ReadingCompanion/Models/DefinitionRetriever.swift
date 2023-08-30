@@ -16,15 +16,17 @@ struct DefinitionRetriever {
         self.information = "Initializing URL..."
         
         /// Initialize URL.
-        guard let apiUrl: URL = URL(string: "https://www.dictionaryapi.com/api/v3/references/collegiate/json/\(word)?key=your-api-key") else {
+        guard let apiUrl: URL = URL(string: "https://dictionaryapi.com/api/v3/references/collegiate/json/test?key=de8d85cf-136a-4fcc-9e33-1ba010aaad6d") else {
             self.information = "Request failed because URL was invalid."
             return
         }
         
         self.information = "Sending request to the following URL - \(apiUrl.absoluteString)."
         
+        self.information = "Awaiting response..."
         /// Make API call.
         let apiTask = URLSession.shared.dataTask(with: apiUrl) { (data: Data?, response: URLResponse?, error: Error?) in
+            self.information = "Entered first completion handler."
             
             /// Completion handler.
             if let error = error {
@@ -46,8 +48,13 @@ struct DefinitionRetriever {
                 if let decodedData = decodedData {
                     completionHandler(decodedData)
                 } else {
-                    self.information += " Something went wrong while decoding."
-                    return
+                    do {
+                        let deserializedData = try JSONSerialization.jsonObject(with: data)
+                        self.information += " Something went wrong while decoding. Here's the deserialized data - \(deserializedData). "
+                        return}
+                    catch {
+                        self.information += "Something went wrong while de-serializing. Here's the error - \(error)."
+                    }
                 }
             } else {
                 self.information += " No data could be retrieved."
@@ -74,11 +81,10 @@ struct DefinitionRetriever {
         - hwi mapped to HeadwordInformation, for identifying what the word is
     - HeadwordInformation with hw (headword).
 */
-struct Word: Codable, Identifiable {
+struct Word: Codable {
     let shortdef: [String]
-    let hwi: HeadwordInformation
+    let hwi: String
     let def: String
-    let id: String
 }
 
 struct HeadwordInformation: Codable {

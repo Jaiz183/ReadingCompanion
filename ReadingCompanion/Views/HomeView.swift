@@ -10,15 +10,21 @@ import SwiftUI
 let appName: String = "Reading Companion"
 
 struct HomeView: View {
-    private let views: Array<any View> = [AnnotatorView(), LookupView()]
+    private let textRecognizer: TextRecognizer
+    private let wordDifficultyComputer: WordDifficultyComputer
     private let viewNames: Array<String> = ["Annotator", "Lookup"]
+    
+    init() {
+        self.wordDifficultyComputer = .init(threshold: 5000)
+        self.textRecognizer = .init(wordDiffcultyComputer: self.wordDifficultyComputer)
+    }
     
     var body: some View {
         
         NavigationStack {
             List {
                 NavigationLink {
-                    AnnotatorView()
+                    AnnotatorView(textRecognizer: self.textRecognizer, wordDifficultyComputer: self.wordDifficultyComputer)
                 } label: {
                     Label {
                         Text("Annotator")

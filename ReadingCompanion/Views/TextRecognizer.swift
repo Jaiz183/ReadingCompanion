@@ -13,7 +13,11 @@ import NaturalLanguage
 
 // Manages asynchronous requests to Vision.
 struct TextRecognizer {
-    private let targetText: String = "SELECTED"
+    private let wordDifficultyComputer: WordDifficultyComputer
+    
+    init(wordDiffcultyComputer: WordDifficultyComputer) {
+        self.wordDifficultyComputer = wordDiffcultyComputer
+    }
     
     /**
      Performs text recognition given an image.
@@ -33,6 +37,7 @@ struct TextRecognizer {
                     
                     var recognizedText: String = ""
                     var boundingRects: [CGRect] = []
+                    let easyWords = self.wordDifficultyComputer.getEasyWords()
                     
                     for result in results {
                         // Returns array with 1 candidate at most and gets first element of that array
@@ -41,12 +46,21 @@ struct TextRecognizer {
                         recognizedText += candidate.string + " "
                         
                         // Get bounding boxes for all results.
-                        if let range = candidate.string.range(of: candidate.string) {
-                            let boxObservation = try? candidate.boundingBox(for: range)
-                            let boundingBox = boxObservation?.boundingBox ?? .zero
-                            let boundingRect = VNImageRectForNormalizedRect(boundingBox, Int(image!.size.width), Int(image!.size.height))
-                            boundingRects.append(boundingRect)
-                        }
+//                        if let range = candidate.string.range(of: candidate.string) {
+//                            let boxObservation = try? candidate.boundingBox(for: range)
+//                            let boundingBox = boxObservation?.boundingBox ?? .zero
+//                            let boundingRect = VNImageRectForNormalizedRect(boundingBox, Int(image!.size.width), Int(image!.size.height))
+//                            boundingRects.append(boundingRect)
+//                        }
+                        
+                        // Get bounding boxes for all DIFFICULT results.
+                        if (!easyWords.contains(candidate.string)) {
+                            if let range = candidate.string.range(of: candidate.string) {
+                                let boxObservation = try? candidate.boundingBox(for: range)
+                                let boundingBox = boxObservation?.boundingBox ?? .zero
+                                let boundingRect = VNImageRectForNormalizedRect(boundingBox, Int(image!.size.width), Int(image!.size.height))
+                                boundingRects.append(boundingRect)
+                            }}
                         
                         // Get bounding box for a specific word.
 //                        if let range = candidate.string.range(of: self.targetText) {

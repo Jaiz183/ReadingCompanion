@@ -28,16 +28,21 @@ struct AnnotatorView: View {
     
     // Text recognition vars.
     @State private var recognizedText: [String] = ["No text recognized yet."]
-    @State private var difficultRecognizedText: [Word] = []
+    @State private var difficultRecognizedText: [String] = []
     @State private var boundingBoxes: [CGRect] = []
     
     // Other vars.
     @State private var apiCallInformation: String = "No information about request."
     
     // Structs to perform computations.
-    private let textRecognizer: TextRecognizer = .init()
+    private let textRecognizer: TextRecognizer
     private let imageManipulator: ImageManipulator = .init()
-    private let wordDifficultyComputer: WordDifficultyComputer = .init(threshold: 5000)
+    private let wordDifficultyComputer: WordDifficultyComputer
+    
+    init(textRecognizer: TextRecognizer, wordDifficultyComputer: WordDifficultyComputer) {
+        self.textRecognizer = textRecognizer
+        self.wordDifficultyComputer = wordDifficultyComputer
+    }
     
     
     var body: some View {
@@ -97,7 +102,7 @@ struct AnnotatorView: View {
 //            .controlSize(.large)
         }
         
-        // Fullscreen cover that displays image(s).
+        /// Fullscreen cover that displays image(s).
         .fullScreenCover(isPresented: self.$isAnnotatedImageDisplayed) {
             VStack {
                 // Display image taken (possibly with swiping gesture).
@@ -133,10 +138,12 @@ struct AnnotatorView: View {
         /// Fullscreen cover that displays text / difficult words
         .fullScreenCover(isPresented: self.$isRecognizedTextDisplayed) {
             ScrollView {
-                List(self.difficultRecognizedText) { difficultWord in
-                    Text(String(describing: difficultWord.shortdef))
+                List(self.difficultRecognizedText, id: \.self) { word in
+                    Text(String(describing: word))
                 }
             }
+            
+            Text(String(describing: self.difficultRecognizedText))
             
             Button(action: {() -> Void in self.isRecognizedTextDisplayed = false}) {
                 Text("Close")
@@ -147,27 +154,32 @@ struct AnnotatorView: View {
         
         /// Fullscreen cover that displays admin / debug info. For dev purposes.
         .fullScreenCover(isPresented: self.$isAdminPageDisplayed, content: {
-            Text("Bounding boxes - " + String(describing: self.boundingBoxes))
-                .multilineTextAlignment(.center)
-                .frame(alignment: .center)
-            
-            Text("All recognized text - " + String(describing: self.recognizedText))
-                .multilineTextAlignment(.center)
-                .frame(alignment: .center)
-            
-            Text("Easy words - " + String(describing: self.wordDifficultyComputer.getEasyWords()))
-                .multilineTextAlignment(.center)
-                .frame(alignment: .center)
-            
-            Text("Information about API call - \(self.apiCallInformation)")
-                .multilineTextAlignment(.center)
-                .frame(alignment: .center)
-            
-            Button(action: {() -> Void in self.isAdminPageDisplayed = false}) {
-                Text("Close")
+            ScrollView {
+                VStack (spacing: 15) {
+        //            Text("Bounding boxes - " + String(describing: self.boundingBoxes))
+        //                .multilineTextAlignment(.center)
+        //                .frame(alignment: .center)
+                    
+                    Text("All recognized text - " + String(describing: self.recognizedText))
+                        .multilineTextAlignment(.center)
+                        .frame(alignment: .center)
+                    
+        //            Text("Easy words - " + String(describing: self.wordDifficultyComputer.getEasyWords()))
+        //                .multilineTextAlignment(.center)
+        //                .frame(alignment: .center)
+                    
+                    Text("Information about API call - \(self.apiCallInformation)")
+                        .multilineTextAlignment(.center)
+                        .frame(alignment: .center)
+                    
+                    Button(action: {() -> Void in self.isAdminPageDisplayed = false}) {
+                        Text("Close")
+                    }
+                    .buttonStyle(.borderedProminent)
+                    .controlSize(.large)
+                }
             }
-            .buttonStyle(.borderedProminent)
-            .controlSize(.large)
+
         })
         
         // When an image is taken, self.image changes. onChange watches for changes in self.
@@ -191,15 +203,16 @@ struct AnnotatorView: View {
                         self.drawnImages.append(imageManipulator.drawBoundingBoxes(undrawnImage: rawImage, boundingBoxes: self.boundingBoxes)!)
                         
                         self.recognizedText = result.recognizedWords
-                        var difficultRecognizedWords = wordDifficultyComputer.findDifficultWords(recognizedWords: self.recognizedText)
+                        let difficultRecognizedWords = wordDifficultyComputer.findDifficultWords(recognizedWords: self.recognizedText)
                         
-                        let definitionRetriever = DefinitionRetriever(information: self.$apiCallInformation)
+                        self.difficultRecognizedText = difficultRecognizedWords
                         
-                        for difficultRecognizedWord in difficultRecognizedWords {
-                            definitionRetriever.fetchDefinition(completionHandler: { word in
-                                self.difficultRecognizedText.append(word)
-                            }, word: difficultRecognizedWord)
-                        }
+//                        let definitionRetriever = DefinitionRetriever(information: self.$apiCallInformation)
+//                        for difficultRecognizedWord in difficultRecognizedWords {
+//                            definitionRetriever.fetchDefinition(completionHandler: { word in
+//                                self.difficultRecognizedText.append(word)
+//                            }, word: difficultRecognizedWord)
+//                        }
                     }
                     self.isTextRecognitionComplete = true
                 } catch {

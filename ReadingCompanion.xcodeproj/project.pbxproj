@@ -13,9 +13,9 @@
 		A5314DE92A4973A100438791 /* SwiftCSV in Frameworks */ = {isa = PBXBuildFile; productRef = A5314DE82A4973A100438791 /* SwiftCSV */; };
 		A53877942A78AD4A00DD150C /* BookInfoRetriever.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53877932A78AD4A00DD150C /* BookInfoRetriever.swift */; };
 		A53877962A78B81300DD150C /* LookupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53877952A78B81300DD150C /* LookupView.swift */; };
+		A539DFC42A9EF856000BCFDD /* word_frequencies.csv in Resources */ = {isa = PBXBuildFile; fileRef = A539DFC32A9EF856000BCFDD /* word_frequencies.csv */; };
 		A53CA2752A9B246300739748 /* WordDifficultyComputer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53CA2742A9B246300739748 /* WordDifficultyComputer.swift */; };
 		A53CA2782A9B253600739748 /* OrderedCollections in Frameworks */ = {isa = PBXBuildFile; productRef = A53CA2772A9B253600739748 /* OrderedCollections */; };
-		A53CA27A2A9B3D2000739748 /* word_frequencies.csv in Resources */ = {isa = PBXBuildFile; fileRef = A53CA2792A9B3D2000739748 /* word_frequencies.csv */; };
 		A552DB412A273F0300BDB0EB /* AnnotatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A552DB402A273F0300BDB0EB /* AnnotatorView.swift */; };
 		A552DB462A275DC500BDB0EB /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = A552DB452A275DC500BDB0EB /* Camera.swift */; };
 		A57C330A2A25ACBC00BB38A6 /* ReadingCompanionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57C33092A25ACBC00BB38A6 /* ReadingCompanionApp.swift */; };
@@ -55,8 +55,8 @@
 		A521791A2A9C6DB9004B78BE /* DefinitionRetriever.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefinitionRetriever.swift; sourceTree = "<group>"; };
 		A53877932A78AD4A00DD150C /* BookInfoRetriever.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookInfoRetriever.swift; sourceTree = "<group>"; };
 		A53877952A78B81300DD150C /* LookupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookupView.swift; sourceTree = "<group>"; };
+		A539DFC32A9EF856000BCFDD /* word_frequencies.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = word_frequencies.csv; path = ../../../../../../Desktop/word_frequencies.csv; sourceTree = "<group>"; };
 		A53CA2742A9B246300739748 /* WordDifficultyComputer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordDifficultyComputer.swift; sourceTree = "<group>"; };
-		A53CA2792A9B3D2000739748 /* word_frequencies.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = word_frequencies.csv; path = ../../../../../../Downloads/word_frequencies.csv; sourceTree = "<group>"; };
 		A552DB402A273F0300BDB0EB /* AnnotatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotatorView.swift; sourceTree = "<group>"; };
 		A552DB422A274A3C00BDB0EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		A552DB452A275DC500BDB0EB /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
@@ -167,7 +167,7 @@
 				A552DB422A274A3C00BDB0EB /* Info.plist */,
 				A57C330D2A25ACBF00BB38A6 /* Assets.xcassets */,
 				A57C330F2A25ACBF00BB38A6 /* Preview Content */,
-				A53CA2792A9B3D2000739748 /* word_frequencies.csv */,
+				A539DFC32A9EF856000BCFDD /* word_frequencies.csv */,
 			);
 			path = ReadingCompanion;
 			sourceTree = "<group>";
@@ -312,8 +312,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A57C33112A25ACBF00BB38A6 /* Preview Assets.xcassets in Resources */,
-				A53CA27A2A9B3D2000739748 /* word_frequencies.csv in Resources */,
 				A57C330E2A25ACBF00BB38A6 /* Assets.xcassets in Resources */,
+				A539DFC42A9EF856000BCFDD /* word_frequencies.csv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
