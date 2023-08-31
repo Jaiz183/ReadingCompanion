@@ -16,6 +16,7 @@
 		A539DFC42A9EF856000BCFDD /* word_frequencies.csv in Resources */ = {isa = PBXBuildFile; fileRef = A539DFC32A9EF856000BCFDD /* word_frequencies.csv */; };
 		A53CA2752A9B246300739748 /* WordDifficultyComputer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53CA2742A9B246300739748 /* WordDifficultyComputer.swift */; };
 		A53CA2782A9B253600739748 /* OrderedCollections in Frameworks */ = {isa = PBXBuildFile; productRef = A53CA2772A9B253600739748 /* OrderedCollections */; };
+		A54A0E542AA0572800DAC221 /* WordInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54A0E532AA0572800DAC221 /* WordInfoView.swift */; };
 		A552DB412A273F0300BDB0EB /* AnnotatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A552DB402A273F0300BDB0EB /* AnnotatorView.swift */; };
 		A552DB462A275DC500BDB0EB /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = A552DB452A275DC500BDB0EB /* Camera.swift */; };
 		A57C330A2A25ACBC00BB38A6 /* ReadingCompanionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57C33092A25ACBC00BB38A6 /* ReadingCompanionApp.swift */; };
@@ -57,6 +58,7 @@
 		A53877952A78B81300DD150C /* LookupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookupView.swift; sourceTree = "<group>"; };
 		A539DFC32A9EF856000BCFDD /* word_frequencies.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = word_frequencies.csv; path = ../../../../../../Desktop/word_frequencies.csv; sourceTree = "<group>"; };
 		A53CA2742A9B246300739748 /* WordDifficultyComputer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordDifficultyComputer.swift; sourceTree = "<group>"; };
+		A54A0E532AA0572800DAC221 /* WordInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordInfoView.swift; sourceTree = "<group>"; };
 		A552DB402A273F0300BDB0EB /* AnnotatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotatorView.swift; sourceTree = "<group>"; };
 		A552DB422A274A3C00BDB0EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		A552DB452A275DC500BDB0EB /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 				A5845A282A6F91CA00B0EE04 /* ImageSwipeView.swift */,
 				A53877952A78B81300DD150C /* LookupView.swift */,
 				A52179182A9C4F75004B78BE /* BookInfoView.swift */,
+				A54A0E532AA0572800DAC221 /* WordInfoView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -346,6 +349,7 @@
 				A57C330A2A25ACBC00BB38A6 /* ReadingCompanionApp.swift in Sources */,
 				A53877962A78B81300DD150C /* LookupView.swift in Sources */,
 				A53877942A78AD4A00DD150C /* BookInfoRetriever.swift in Sources */,
+				A54A0E542AA0572800DAC221 /* WordInfoView.swift in Sources */,
 				A5CBDA022A342DBE00439EE0 /* ImageManipulator.swift in Sources */,
 				A5845A292A6F91CA00B0EE04 /* ImageSwipeView.swift in Sources */,
 				A52179192A9C4F75004B78BE /* BookInfoView.swift in Sources */,

@@ -16,7 +16,7 @@ struct DefinitionRetriever {
         self.information = "Initializing URL..."
         
         /// Initialize URL.
-        guard let apiUrl: URL = URL(string: "https://dictionaryapi.com/api/v3/references/collegiate/json/test?key=de8d85cf-136a-4fcc-9e33-1ba010aaad6d") else {
+        guard let apiUrl: URL = URL(string: "https://dictionaryapi.com/api/v3/references/collegiate/json/\(word)?key=de8d85cf-136a-4fcc-9e33-1ba010aaad6d") else {
             self.information = "Request failed because URL was invalid."
             return
         }
@@ -43,27 +43,43 @@ struct DefinitionRetriever {
             }
             
             if let data = data {
+                /// Get first element of array returned because of annoying API return format.
+                do {
+                    let deserializedData = try JSONSerialization.jsonObject(with: data) as? [NSDictionary]
+                    // This line makes the app crash. I think it returns nil or deserialized data is nil.
+//                    data = try JSONSerialization.data(withJSONObject: deserializedData![0])
+                }
+                catch {
+                    self.information += " Something went wrong while de-serializing or serializing. Here's the error - \(error)."
+                    return
+                }
+                
                 /// Decode data.
                 let decodedData: Word? = try? JSONDecoder().decode(Word.self, from: data)
                 if let decodedData = decodedData {
                     completionHandler(decodedData)
                 } else {
                     do {
-                        let deserializedData = try JSONSerialization.jsonObject(with: data)
-                        self.information += " Something went wrong while decoding. Here's the deserialized data - \(deserializedData). "
-                        return}
+                        let deserializedData = try JSONSerialization.jsonObject(with: data) as? [NSDictionary]
+                        let shortdef = deserializedData![0]["shortdef"] as! [String]
+                        self.information += " Something went wrong while decoding. Returning the shortdef through deserialization - \(String(describing: shortdef))."
+                        completionHandler(Word(shortdef: shortdef))
+                        self.information += " Here's all of the deserialized data - \(String(describing: deserializedData!))."
+                        return
+                    }
                     catch {
                         self.information += "Something went wrong while de-serializing. Here's the error - \(error)."
+                        return
                     }
                 }
             } else {
                 self.information += " No data could be retrieved."
+                return
             }
         }
         
         // Resume task.
         apiTask.resume()
-        
         return
     }
 }
@@ -82,9 +98,9 @@ struct DefinitionRetriever {
     - HeadwordInformation with hw (headword).
 */
 struct Word: Codable {
+    var def: String = "No definition."
     let shortdef: [String]
-    let hwi: String
-    let def: String
+//    let hwi: HeadwordInformation
 }
 
 struct HeadwordInformation: Codable {

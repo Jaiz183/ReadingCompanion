@@ -28,7 +28,7 @@ struct AnnotatorView: View {
     
     // Text recognition vars.
     @State private var recognizedText: [String] = ["No text recognized yet."]
-    @State private var difficultRecognizedText: [String] = []
+    @State private var difficultRecognizedText: [WordSummarized] = []
     @State private var boundingBoxes: [CGRect] = []
     
     // Other vars.
@@ -137,13 +137,17 @@ struct AnnotatorView: View {
         
         /// Fullscreen cover that displays text / difficult words
         .fullScreenCover(isPresented: self.$isRecognizedTextDisplayed) {
-            ScrollView {
-                List(self.difficultRecognizedText, id: \.self) { word in
-                    Text(String(describing: word))
+                NavigationStack {
+                    List(self.difficultRecognizedText) { summarizedWord in
+                        NavigationLink {
+                            WordInfoView(word: summarizedWord.word, definitions: summarizedWord.definitions)
+                        } label: {
+                            Text(summarizedWord.word)
+                        }
+                    }
                 }
-            }
             
-            Text(String(describing: self.difficultRecognizedText))
+//            Text(String(describing: self.difficultRecognizedText))
             
             Button(action: {() -> Void in self.isRecognizedTextDisplayed = false}) {
                 Text("Close")
@@ -156,21 +160,21 @@ struct AnnotatorView: View {
         .fullScreenCover(isPresented: self.$isAdminPageDisplayed, content: {
             ScrollView {
                 VStack (spacing: 15) {
-        //            Text("Bounding boxes - " + String(describing: self.boundingBoxes))
-        //                .multilineTextAlignment(.center)
-        //                .frame(alignment: .center)
+                    //            Text("Bounding boxes - " + String(describing: self.boundingBoxes))
+                    //                .multilineTextAlignment(.center)
+                    //                .frame(alignment: .center)
                     
                     Text("All recognized text - " + String(describing: self.recognizedText))
                         .multilineTextAlignment(.center)
                         .frame(alignment: .center)
                     
-        //            Text("Easy words - " + String(describing: self.wordDifficultyComputer.getEasyWords()))
-        //                .multilineTextAlignment(.center)
-        //                .frame(alignment: .center)
+                    //            Text("Easy words - " + String(describing: self.wordDifficultyComputer.getEasyWords()))
+                    //                .multilineTextAlignment(.center)
+                    //                .frame(alignment: .center)
                     
                     Text("Information about API call - \(self.apiCallInformation)")
                         .multilineTextAlignment(.center)
-                        .frame(alignment: .center)
+                    .frame(alignment: .center)}
                     
                     Button(action: {() -> Void in self.isAdminPageDisplayed = false}) {
                         Text("Close")
@@ -178,7 +182,6 @@ struct AnnotatorView: View {
                     .buttonStyle(.borderedProminent)
                     .controlSize(.large)
                 }
-            }
 
         })
         
@@ -205,14 +208,17 @@ struct AnnotatorView: View {
                         self.recognizedText = result.recognizedWords
                         let difficultRecognizedWords = wordDifficultyComputer.findDifficultWords(recognizedWords: self.recognizedText)
                         
-                        self.difficultRecognizedText = difficultRecognizedWords
+//                        self.difficultRecognizedText = difficultRecognizedWords
                         
-//                        let definitionRetriever = DefinitionRetriever(information: self.$apiCallInformation)
-//                        for difficultRecognizedWord in difficultRecognizedWords {
-//                            definitionRetriever.fetchDefinition(completionHandler: { word in
-//                                self.difficultRecognizedText.append(word)
-//                            }, word: difficultRecognizedWord)
-//                        }
+                        let definitionRetriever = DefinitionRetriever(information: self.$apiCallInformation)
+                        
+                        var id = 0
+                        for difficultRecognizedWord in difficultRecognizedWords {
+                            definitionRetriever.fetchDefinition(completionHandler: { word in
+                                self.difficultRecognizedText.append(WordSummarized(id: id, word: difficultRecognizedWord, definitions: word.shortdef))
+                                id += 1
+                            }, word: difficultRecognizedWord)
+                        }
                     }
                     self.isTextRecognitionComplete = true
                 } catch {
@@ -222,4 +228,10 @@ struct AnnotatorView: View {
                 }
         })
     }
+}
+
+struct WordSummarized: Identifiable {
+    let id: Int
+    let word: String
+    let definitions: [String]
 }
